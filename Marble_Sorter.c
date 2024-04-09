@@ -17,15 +17,7 @@ void intake()
 		startMotor(InitMotor, 60);
 	}
 	stopMotor(InitMotor);
-	startMotor(InitMotor, 20);
-	wait(3);
-	SensorValue(InitQuad) = 0;
-
 }
-
-
-
-
 
 
 void checkmarble()
@@ -62,11 +54,9 @@ void checkmarble()
 		wait(3);
 		setServo(ColorGate, -40);
 	}
-
+SensorValue(InitQuad) = 0;
+stopMotor(InitMotor);
 }
-
-
-
 
 
 
@@ -78,14 +68,11 @@ task main()
 	SensorValue(InitQuad) = 0;
 	wait(.05);
 
-
-
-
 	while(true){
 		setServo(ColorGate, -40);
 		intake();
-		startMotor(InitMotor, 15);
-		wait(1);
+		startMotor(InitMotor, 20);
+		wait(3);
 		checkmarble();
 
 	}
